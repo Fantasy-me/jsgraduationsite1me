@@ -36,8 +36,8 @@
   border: 5px double #fafafa;
   background: midnightblue;
   margin: 35px 0;	
-width: 200px;
-height: 45px;
+width: 220px;
+height: 55px;
 font-size: 24px;
 }
         body{
@@ -49,20 +49,25 @@ font-size: 24px;
 <body>
     <script>
         	function finish() {
-  let a =+ document.form.a.value;
-  let b =+ document.form.b.value;
-  let c =+ document.form.b.value;
+  let a =+document.form.a.value;
+  let b =+document.form.b.value;
+  let c =+document.form.c.value;
   let sol = document.getElementById('finish')
-
+  
 	
-	let S = a * b * c; 
 	let P = a + b + c;
-	string="Площа(S) = " + S + "; Периметр(P) = " + P	
+    let p = (a + b + c)/2;
+    let S = Math.sqrt(p*(p-a)*(p-b)*(p-c))
+	if((a+b)>c && (b+c)>a && (a+c)>b && a>0 &&b>0 &&c>0 ){
+string="Площа(S) = " + S + "; Периметр(P) = " + P
+}else{
+string="Трикутник з такими сторонами не існує"
+}	
 	sol.innerHTML = string;
 }
     </script>
     	<div>
-            <p>Площа та периметр прямокутника :0</p>
+            <p>Площа та периметр трикутника :0</p>
             <form name="form" action="javascript:finish()">
             a <input class="input" name="a" type="text" value="3" size="4">
             b <input class="input" name="b" type="text" value="4" size="4">
